@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?xml-stylesheet href="chrome://urlbox/skin/toolbarbutton.css" type="text/css"?>
+
+<!DOCTYPE overlay SYSTEM "chrome://urlbox/locale/overlay.dtd">
+
+<overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	<script type="application/javascript" src="chrome://urlbox/content/urlbox.js"/>
+	
+	<toolbarpalette id="BrowserToolbarPalette">
+		<toolbaritem id="urlbox-button"
+			class="chromeclass-toolbar-additional"
+			label="&urlbox.label;"
+			flex="1"
+			align="center">
+			
+			<label id="urlbox-label"
+				crop="center"
+				value=""/>
+		</toolbaritem>
+	</toolbarpalette>
+</overlay>

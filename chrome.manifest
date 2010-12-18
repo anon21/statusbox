@@ -1,0 +1,10 @@
+content urlbox chrome/content/
+
+locale urlbox en-US chrome/locale/en-US/
+locale urlbox ja-JP chrome/locale/ja-JP/
+
+skin urlbox classic/1.0 chrome/skin/
+
+overlay chrome://browser/content/browser.xul chrome://urlbox/content/overlay.xul
+
+style chrome://global/content/customizeToolbar.xul chrome://urlbox/skin/toolbarbutton.css

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://urlbox/skin/options.css" type="text/css"?>
+
+<!DOCTYPE prefwindow SYSTEM "chrome://urlbox/locale/options.dtd">
+
+<prefwindow xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	id="urlbox-prefwindow"
+	title="&urlbox.options.title;"
+	width="480"
+	height="320"
+	orient="vertical"
+	buttons="accept,cancel">
+	
+	<script type="application/javascript" src="chrome://urlbox/content/options.js"/>
+	
+	<prefpane id="urlbox-prefpane">
+		<preferences>
+			<preference id="urlbox-flex-pref"
+				name="extensions.urlbox.flex"
+				type="bool"/>
+			
+			<preference id="urlbox-width-pref"
+				name="extensions.urlbox.width"
+				type="int"/>
+			
+			<preference id="urlbox-position-pref"
+				name="extensions.urlbox.position"
+				type="int"/>
+			
+			<preference id="urlbox-text-align-pref"
+				name="extensions.urlbox.textAlign"
+				type="int"/>
+			
+			<preference id="urlbox-show-in-urlbar-pref"
+				name="extensions.urlbox.showInUrlbar"
+				type="bool"/>
+		</preferences>
+		
+		<groupbox>
+			<caption>
+				<checkbox id="urlbox-flex-checkbox"
+					label="&urlbox.options.flex;"
+					preference="urlbox-flex-pref"
+					oncommand="urlboxOptions.onFlexChange();"/>
+			</caption>
+			
+			<hbox align="baseline">
+				<label class="urlbox-options-label"
+					value="&urlbox.options.width;"
+					control="urlbox-width-textbox"/>
+				
+				<textbox id="urlbox-width-textbox"
+					class="urlbox-options-item urlbox-flex-group"
+					type="number"
+					min="0"
+					preference="urlbox-width-pref"/>
+			</hbox>
+			
+			<hbox align="baseline">
+				<label class="urlbox-options-label"
+					value="&urlbox.options.position;"
+					control="urlbox-position-menulist"/>
+				
+				<menulist id="urlbox-position-menulist"
+					class="urlbox-options-item urlbox-flex-group"
+					preference="urlbox-position-pref">
+					
+					<menupopup>
+						<menuitem label="&urlbox.options.positionStart;" value="0"/>
+						<menuitem label="&urlbox.options.positionCenter;" value="1"/>
+						<menuitem label="&urlbox.options.positionEnd;" value="2"/>
+					</menupopup>
+				</menulist>
+			</hbox>
+		</groupbox>
+		
+		<hbox align="baseline">
+			<label class="urlbox-options-label"
+				value="&urlbox.options.textAlign;"
+				control="urlbox-text-align-menulist"/>
+			
+			<menulist id="urlbox-text-align-menulist"
+				class="urlbox-options-item"
+				preference="urlbox-text-align-pref">
+				
+				<menupopup>
+					<menuitem label="&urlbox.options.textAlignLeft;" value="0"/>
+					<menuitem label="&urlbox.options.textAlignCenter;" value="1"/>
+					<menuitem label="&urlbox.options.textAlignRight;" value="2"/>
+				</menupopup>
+			</menulist>
+		</hbox>
+		
+		<checkbox label="&urlbox.options.showInUrlbar;"
+			preference="urlbox-show-in-urlbar-pref"/>
+	</prefpane>
+</prefwindow>
