@@ -6,7 +6,7 @@
 	<Description about="urn:mozilla:install-manifest">
 		<em:name>URL Box</em:name>
 		<em:id>{864c3c17-db4d-4d21-959f-cd3f2e2d1258}</em:id>
-		<em:version>0.1.0</em:version>
+		<em:version>0.1.1</em:version>
 		<em:type>2</em:type>
 		<em:description>Show the URL on link hover in a toolbar button.</em:description>
 		<em:creator>anon21</em:creator>

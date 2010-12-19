@@ -114,10 +114,10 @@ var urlbox = function() {
 		onUnload: function() {
 			// ツールバーボタンのカスタマイズの監視を解除
 			document.getElementById("navigator-toolbox")
-				.removeEventListener('dragdrop', updateObserver, false);
+				.removeEventListener('dragdrop', update, false);
 			
 			document.getElementById("addon-bar")
-				.removeEventListener('dragdrop', updateObserver, false);
+				.removeEventListener('dragdrop', update, false);
 			
 			// preferenceの変更の監視を解除
 			pref_.QueryInterface(Ci.nsIPrefBranch2);
