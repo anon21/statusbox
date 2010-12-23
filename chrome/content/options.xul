@@ -25,10 +25,6 @@
 				name="extensions.urlbox.width"
 				type="int"/>
 			
-			<preference id="urlbox-position-pref"
-				name="extensions.urlbox.position"
-				type="int"/>
-			
 			<preference id="urlbox-text-align-pref"
 				name="extensions.urlbox.textAlign"
 				type="int"/>
@@ -56,23 +52,6 @@
 					type="number"
 					min="0"
 					preference="urlbox-width-pref"/>
-			</hbox>
-			
-			<hbox align="baseline">
-				<label class="urlbox-options-label"
-					value="&urlbox.options.position;"
-					control="urlbox-position-menulist"/>
-				
-				<menulist id="urlbox-position-menulist"
-					class="urlbox-options-item urlbox-flex-group"
-					preference="urlbox-position-pref">
-					
-					<menupopup>
-						<menuitem label="&urlbox.options.positionStart;" value="0"/>
-						<menuitem label="&urlbox.options.positionCenter;" value="1"/>
-						<menuitem label="&urlbox.options.positionEnd;" value="2"/>
-					</menupopup>
-				</menulist>
 			</hbox>
 		</groupbox>
 		

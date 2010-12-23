@@ -26,23 +26,10 @@ var urlbox = function() {
 	// preferenceに設定された値を適用する
 	function applyPref() {
 		if( pref_.getBoolPref("flex") ) {
-			urlboxLabel_.flex = "1";
+			urlboxButton_.flex = "1";
 		} else {
-			urlboxLabel_.flex = "0";
-			
-			urlboxLabel_.width = pref_.getIntPref("width");
-			
-			switch( pref_.getIntPref("position") ) {
-			case 0:
-				urlboxButton_.pack = "start";
-				break;
-			case 1:
-				urlboxButton_.pack = "center";
-				break;
-			case 2:
-				urlboxButton_.pack = "end";
-				break;
-			}
+			urlboxButton_.flex = "0";
+			urlboxButton_.width = pref_.getIntPref("width");
 		}
 		
 		switch( pref_.getIntPref("textAlign") ) {

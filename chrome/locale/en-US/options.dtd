@@ -3,10 +3,6 @@
 
 <!ENTITY urlbox.options.flex "Resize the box automatically">
 <!ENTITY urlbox.options.width "Width (in pixel)">
-<!ENTITY urlbox.options.position "Position">
-<!ENTITY urlbox.options.positionStart "Left">
-<!ENTITY urlbox.options.positionCenter "Center">
-<!ENTITY urlbox.options.positionEnd "Right">
 <!ENTITY urlbox.options.textAlign "Text Alignment">
 <!ENTITY urlbox.options.textAlignLeft "Left">
 <!ENTITY urlbox.options.textAlignCenter "Center">

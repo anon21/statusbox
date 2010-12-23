@@ -11,12 +11,12 @@
 		<toolbaritem id="urlbox-button"
 			class="chromeclass-toolbar-additional"
 			label="&urlbox.label;"
-			flex="1"
 			align="center">
 			
 			<label id="urlbox-label"
 				crop="center"
-				value=""/>
+				value=""
+				flex="1"/>
 		</toolbaritem>
 	</toolbarpalette>
 </overlay>

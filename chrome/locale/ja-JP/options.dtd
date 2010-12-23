@@ -3,10 +3,6 @@
 
 <!ENTITY urlbox.options.flex "幅を自動で調整する">
 <!ENTITY urlbox.options.width "幅(ピクセル)">
-<!ENTITY urlbox.options.position "位置">
-<!ENTITY urlbox.options.positionStart "左">
-<!ENTITY urlbox.options.positionCenter "中央">
-<!ENTITY urlbox.options.positionEnd "右">
 <!ENTITY urlbox.options.textAlign "テキスト位置">
 <!ENTITY urlbox.options.textAlignLeft "左">
 <!ENTITY urlbox.options.textAlignCenter "中央">
