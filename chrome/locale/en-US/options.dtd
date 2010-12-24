@@ -6,5 +6,5 @@
 <!ENTITY urlbox.options.textAlign "Text Alignment">
 <!ENTITY urlbox.options.textAlignLeft "Left">
 <!ENTITY urlbox.options.textAlignCenter "Center">
-<!ENTITY urlbox.options.textAlignRight "Riht">
+<!ENTITY urlbox.options.textAlignRight "Right">
 <!ENTITY urlbox.options.showInUrlbar "Show the URL in the location bar">
