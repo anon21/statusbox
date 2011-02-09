@@ -7,16 +7,14 @@ var urlbox = function() {
 		.getService(Ci.nsIPrefService)
 		.getBranch("extensions.urlbox.");
 	
-	var app_ = Cc["@mozilla.org/fuel/application;1"]
-		.getService(Ci.fuelIApplication);
+	// URLを表示するラベル
+	var label_ = null;
 	
-	var shouldUpdate_  = true;
-	var showInUrlbar_ = false;
+	// ロケーションバーに表示するかどうか
+	var showInUrlbar_;
 	
-	var urlboxButton_ = null;
-	var urlboxLabel_ = null;
-	
-	var nativeSetOverLink = XULBrowserWindow.setOverLink;
+	// リンクをホバーしたとき呼び出される元々の関数
+	var setOverLinkNative = XULBrowserWindow.setOverLink;
 	
 	// リンクをマウスオーバーしたときに呼び出されるメソッド
 	function overlaySetOverLink(url, anchorElt) {
@@ -34,107 +32,85 @@ var urlbox = function() {
 	}
 	
 	// preferenceに設定された値を適用する
-	function applyPref() {
+	function applyPreference() {
+		if( !label_ )
+			return;
+		
+		let button_ = document.getElementById("urlbox-button");
+		
 		if( pref_.getBoolPref("flex") ) {
-			urlboxButton_.flex = "1";
+			button_.flex = "1";
 		} else {
-			urlboxButton_.flex = "0";
-			urlboxButton_.width = pref_.getIntPref("width");
+			button_.flex = "0";
+			button_.width = pref_.getIntPref("width");
 		}
 		
 		switch( pref_.getIntPref("textAlign") ) {
 		case 0:
-			urlboxLabel_.style.textAlign = "left";
+			label_.style.textAlign = "left";
 			break;
 		case 1:
-			urlboxLabel_.style.textAlign = "center";
+			label_.style.textAlign = "center";
 			break;
 		case 2:
-			urlboxLabel_.style.textAlign = "right";
+			label_.style.textAlign = "right";
 			break;
 		}
 		
 		showInUrlbar_ = pref_.getBoolPref("showInUrlbar");
 	}
 	
-	// URL Boxボタンの状態を更新する
-	function updateUrlboxButton() {
-		var urlboxButton = document.getElementById("urlbox-button");
-		
-		if( urlboxButton ) {
-			urlboxButton_ = urlboxButton;
-			urlboxLabel_ = document.getElementById("urlbox-label");
-			
-			applyPref();
-			
-			XULBrowserWindow.setOverLink = overlaySetOverLink;
-		} else {
-			XULBrowserWindow.setOverLink = nativeSetOverLink;
-			
-			urlboxButton_ = null;
-			urlboxLabel_ = null;
-		}
-		
-		shouldUpdate_ = false;
-	}
-	
-	// URL Boxボタンがドラッグされたら，次回使用時に状態更新を要求する
-	function onUrlboxButtonDragStart(evt) {
-		shouldUpdate_ = true;
-	}
-	
-	// URL Boxボタンがツールバー上にドロップされたら，ただちに更新する
-	function onUrlboxButtonDragDrop(evt) {
-		updateUrlboxButton();
-	}
-	
 	// preferenceの変更監視用オブジェクト
 	var prefObserver_ = {
 		observe: function(aSubject, aTopic, aData) {
 			if( aTopic == "nsPref:changed" ) {
-				if( urlboxButton_ ) {
-					applyPref();
-				}
+				applyPreference();
 			}
 		},
 	};
 	
+	// リンクをホバーしたとき呼び出される関数 
+	function setOverLinkOverlay(url, anchorElt) {
+		label_.value = url;
+		
+		if( showInUrlbar_ ) {
+			setOverLinkNative(url, anchorElt);
+		}
+	}
+	
+	// UIの状態を更新する
+	function updateUIStatus() {
+		label_ = document.getElementById("urlbox-label");
+		
+		if( label_ ) {
+			applyPreference();
+			XULBrowserWindow.setOverLink = setOverLinkOverlay;
+		} else {
+			XULBrowserWindow.setOverLink = setOverLinkNative;
+		}
+	}
+	
+	// ツールバーのカスタマイズの監視イベントリスナ
+	function customizeChange(e) {
+		updateUIStatus();
+	}
+	
 	return {
 		onLoad: function() {
-			updateUrlboxButton();
+			updateUIStatus();
 			
-			// ツールバーボタンのカスタマイズを監視
-			document.getElementById("navigator-toolbox")
-				.addEventListener('dragstart', onUrlboxButtonDragStart, false);
+			// ツールバーのカスタマイズの監視
+			window.addEventListener("customizationchange", customizeChange, false);
 			
-			document.getElementById("navigator-toolbox")
-				.addEventListener('dragdrop', onUrlboxButtonDragDrop, false);
-			
-			document.getElementById("addon-bar")
-				.addEventListener('dragstart', onUrlboxButtonDragStart, false);
-			
-			document.getElementById("addon-bar")
-				.addEventListener('dragdrop', onUrlboxButtonDragDrop, false);
-			
-			// preferenceの変更を監視
+			// preferenceの変更の監視
 			pref_.QueryInterface(Ci.nsIPrefBranch2);
 			pref_.addObserver("", prefObserver_, false);
 			pref_.QueryInterface(Ci.nsIPrefBranch);
 		},
 		
 		onUnload: function() {
-			// ツールバーボタンのカスタマイズの監視を解除
-			document.getElementById("navigator-toolbox")
-				.removeEventListener('dragstart', disableUrlboxButton, false);
-			
-			document.getElementById("navigator-toolbox")
-				.removeEventListener('dragdrop', disableUrlboxButton, false);
-			
-			document.getElementById("addon-bar")
-				.removeEventListener('dragstart', disableUrlboxButton, false);
-			
-			document.getElementById("addon-bar")
-				.removeEventListener('dragdrop', disableUrlboxButton, false);
+			// ツールバーのカスタマイズの監視の解除
+			window.removeEventListener("customizationchange", customizeChange, false);
 			
 			// preferenceの変更の監視を解除
 			pref_.QueryInterface(Ci.nsIPrefBranch2);

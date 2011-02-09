@@ -39,7 +39,7 @@
 				<checkbox id="urlbox-flex-checkbox"
 					label="&urlbox.options.flex;"
 					preference="urlbox-flex-pref"
-					oncommand="urlboxOptions.onFlexChange();"/>
+					oncommand="urlboxOptions.updateFlexGroup();"/>
 			</caption>
 			
 			<hbox align="baseline">

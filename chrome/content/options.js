@@ -1,7 +1,7 @@
 
 var urlboxOptions = function() {
 	return {
-		onFlexChange: function() {
+		updateFlexGroup: function() {
 			var elems = document.getElementsByClassName("urlbox-flex-group");
 			var b = document.getElementById("urlbox-flex-checkbox").checked;
 			
@@ -12,4 +12,4 @@ var urlboxOptions = function() {
 	};
 }();
 
-window.addEventListener("load", urlboxOptions.onFlexChange, false);
+window.addEventListener("load", urlboxOptions.updateFlexGroup, false);
