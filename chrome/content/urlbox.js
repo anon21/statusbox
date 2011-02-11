@@ -10,54 +10,48 @@ var urlbox = function() {
 	// URLを表示するラベル
 	var label_ = null;
 	
-	// ロケーションバーに表示するかどうか
-	var showInUrlbar_;
+	// URL Boxが非表示の時の動作
+	var whenHidden_;
 	
 	// リンクをホバーしたとき呼び出される元々の関数
 	var setOverLinkNative = XULBrowserWindow.setOverLink;
 	
-	// リンクをマウスオーバーしたときに呼び出されるメソッド
-	function overlaySetOverLink(url, anchorElt) {
-		if( shouldUpdate_ ) {
-			updateUrlboxButton();
-			
-			XULBrowserWindow.setOverLink(url, anchorElt);
-		} else {
-			urlboxLabel_.value = url;
-			
-			if( showInUrlbar_ ) {
-				nativeSetOverLink(url, anchorElt);
-			}
-		}
-	}
-	
 	// preferenceに設定された値を適用する
 	function applyPreference() {
-		if( !label_ )
-			return;
-		
-		let button_ = document.getElementById("urlbox-button");
-		
-		if( pref_.getBoolPref("flex") ) {
-			button_.flex = "1";
-		} else {
-			button_.flex = "0";
-			button_.width = pref_.getIntPref("width");
-		}
-		
-		switch( pref_.getIntPref("textAlign") ) {
-		case 0:
-			label_.style.textAlign = "left";
+		switch( pref_.getIntPref("whenHidden") ) {
+		case 1: // ロケーションバーに表示
+			XULBrowserWindow.setOverLink = setOverLinkOverlay1;
 			break;
-		case 1:
-			label_.style.textAlign = "center";
+		case 2: // ステータスパネルに表示
+			XULBrowserWindow.setOverLink = setOverLinkOverlay2;
 			break;
-		case 2:
-			label_.style.textAlign = "right";
+		default: // 何もしない
+			XULBrowserWindow.setOverLink = setOverLinkOverlay;
 			break;
 		}
 		
-		showInUrlbar_ = pref_.getBoolPref("showInUrlbar");
+		if( label_ ) {
+			let button_ = document.getElementById("urlbox-button");
+			
+			if( pref_.getBoolPref("flex") ) {
+				button_.flex = "1";
+			} else {
+				button_.flex = "0";
+				button_.width = pref_.getIntPref("width");
+			}
+			
+			switch( pref_.getIntPref("textAlign") ) {
+			case 0:
+				label_.style.textAlign = "left";
+				break;
+			case 1:
+				label_.style.textAlign = "center";
+				break;
+			case 2:
+				label_.style.textAlign = "right";
+				break;
+			}
+		}
 	}
 	
 	// preferenceの変更監視用オブジェクト
@@ -69,12 +63,27 @@ var urlbox = function() {
 		},
 	};
 	
-	// リンクをホバーしたとき呼び出される関数 
+	// リンクをホバーしたとき呼び出される関数(非表示時に何もしない)
 	function setOverLinkOverlay(url, anchorElt) {
 		label_.value = url;
-		
-		if( showInUrlbar_ ) {
+	}
+	
+	// リンクをホバーしたとき呼び出される関数(非表示時にロケーションバーに表示)
+	function setOverLinkOverlay1(url, anchorElt) {
+		if( label_.boxObject.height == 0 ) {
 			setOverLinkNative(url, anchorElt);
+		} else {
+			label_.value = url;
+		}
+	}
+	
+	// リンクをホバーしたとき呼び出される関数(非表示時にステータスパネルに表示)
+	function setOverLinkOverlay2(url, anchorElt) {
+		if( label_.boxObject.height == 0 ) {
+			XULBrowserWindow.setDefaultStatus(url);
+		} else {
+			XULBrowserWindow.setDefaultStatus(null);
+			label_.value = url;
 		}
 	}
 	
@@ -84,7 +93,6 @@ var urlbox = function() {
 		
 		if( label_ ) {
 			applyPreference();
-			XULBrowserWindow.setOverLink = setOverLinkOverlay;
 		} else {
 			XULBrowserWindow.setOverLink = setOverLinkNative;
 		}

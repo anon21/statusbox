@@ -7,4 +7,8 @@
 <!ENTITY urlbox.options.textAlignLeft "左">
 <!ENTITY urlbox.options.textAlignCenter "中央">
 <!ENTITY urlbox.options.textAlignRight "右">
-<!ENTITY urlbox.options.showInUrlbar "ロケーションバーにもリンクを表示">
+
+<!ENTITY urlbox.options.whenHidden "URL Boxが非表示の時の動作">
+<!ENTITY urlbox.options.doNothing "何もしない">
+<!ENTITY urlbox.options.showInUrlbar "ロケーションバーに表示">
+<!ENTITY urlbox.options.showInStatuspanel "ステータスパネルに表示">

@@ -7,4 +7,8 @@
 <!ENTITY urlbox.options.textAlignLeft "Left">
 <!ENTITY urlbox.options.textAlignCenter "Center">
 <!ENTITY urlbox.options.textAlignRight "Right">
-<!ENTITY urlbox.options.showInUrlbar "Show the URL in the location bar">
+
+<!ENTITY urlbox.options.whenHidden "When URL Box is Hidden">
+<!ENTITY urlbox.options.doNothing "Do nothing">
+<!ENTITY urlbox.options.showInUrlbar "Show in the location bar">
+<!ENTITY urlbox.options.showInStatuspanel "Show in the status panel">

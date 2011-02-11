@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
-<?xml-stylesheet href="chrome://urlbox/skin/options.css" type="text/css"?>
 
 <!DOCTYPE prefwindow SYSTEM "chrome://urlbox/locale/options.dtd">
 
@@ -29,9 +28,9 @@
 				name="extensions.urlbox.textAlign"
 				type="int"/>
 			
-			<preference id="urlbox-show-in-urlbar-pref"
-				name="extensions.urlbox.showInUrlbar"
-				type="bool"/>
+			<preference id="urlbox-when-hidden-pref"
+				name="extensions.urlbox.whenHidden"
+				type="int"/>
 		</preferences>
 		
 		<groupbox>
@@ -43,25 +42,26 @@
 			</caption>
 			
 			<hbox align="baseline">
-				<label class="urlbox-options-label"
-					value="&urlbox.options.width;"
+				<label value="&urlbox.options.width;"
+					width="120px"
 					control="urlbox-width-textbox"/>
 				
 				<textbox id="urlbox-width-textbox"
-					class="urlbox-options-item urlbox-flex-group"
+					class="urlbox-flex-group"
 					type="number"
 					min="0"
+					width="80px"
 					preference="urlbox-width-pref"/>
 			</hbox>
 		</groupbox>
 		
 		<hbox align="baseline">
-			<label class="urlbox-options-label"
-				value="&urlbox.options.textAlign;"
+			<label value="&urlbox.options.textAlign;"
+				width="180px"
 				control="urlbox-text-align-menulist"/>
 			
 			<menulist id="urlbox-text-align-menulist"
-				class="urlbox-options-item"
+				width="200px"
 				preference="urlbox-text-align-pref">
 				
 				<menupopup>
@@ -72,7 +72,21 @@
 			</menulist>
 		</hbox>
 		
-		<checkbox label="&urlbox.options.showInUrlbar;"
-			preference="urlbox-show-in-urlbar-pref"/>
+		<hbox align="baseline">
+			<label value="&urlbox.options.whenHidden;"
+				width="180px"
+				control="urlbox-when-hidden-menulist"/>
+			
+			<menulist id="urlbox-when-hidden-menulist"
+				width="200px"
+				preference="urlbox-when-hidden-pref">
+				
+				<menupopup>
+					<menuitem label="&urlbox.options.doNothing;" value="0"/>
+					<menuitem label="&urlbox.options.showInUrlbar;" value="1"/>
+					<menuitem label="&urlbox.options.showInStatuspanel;" value="2"/>
+				</menupopup>
+			</menulist>
+		</hbox>
 	</prefpane>
 </prefwindow>
