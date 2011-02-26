@@ -1,14 +1,9 @@
 
-<!ENTITY urlbox.options.title "URL Box Preferences">
+<!ENTITY statusbox.options.title "Status Box Preferences">
 
-<!ENTITY urlbox.options.flex "Resize the box automatically">
-<!ENTITY urlbox.options.width "Width (in pixel)">
-<!ENTITY urlbox.options.textAlign "Text Alignment">
-<!ENTITY urlbox.options.textAlignLeft "Left">
-<!ENTITY urlbox.options.textAlignCenter "Center">
-<!ENTITY urlbox.options.textAlignRight "Right">
-
-<!ENTITY urlbox.options.whenHidden "When URL Box is Hidden">
-<!ENTITY urlbox.options.doNothing "Do nothing">
-<!ENTITY urlbox.options.showInUrlbar "Show in the location bar">
-<!ENTITY urlbox.options.showInStatuspanel "Show in the status panel">
+<!ENTITY statusbox.options.flex "Resize the box automatically">
+<!ENTITY statusbox.options.width "Width (in pixel)">
+<!ENTITY statusbox.options.textAlign "Text Alignment">
+<!ENTITY statusbox.options.textAlignLeft "Left">
+<!ENTITY statusbox.options.textAlignCenter "Center">
+<!ENTITY statusbox.options.textAlignRight "Right">

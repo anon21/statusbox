@@ -1,14 +1,9 @@
 
-<!ENTITY urlbox.options.title "URL Boxの設定">
+<!ENTITY statusbox.options.title "Status Box の設定">
 
-<!ENTITY urlbox.options.flex "幅を自動で調整する">
-<!ENTITY urlbox.options.width "幅(ピクセル)">
-<!ENTITY urlbox.options.textAlign "テキスト位置">
-<!ENTITY urlbox.options.textAlignLeft "左">
-<!ENTITY urlbox.options.textAlignCenter "中央">
-<!ENTITY urlbox.options.textAlignRight "右">
-
-<!ENTITY urlbox.options.whenHidden "URL Boxが非表示の時の動作">
-<!ENTITY urlbox.options.doNothing "何もしない">
-<!ENTITY urlbox.options.showInUrlbar "ロケーションバーに表示">
-<!ENTITY urlbox.options.showInStatuspanel "ステータスパネルに表示">
+<!ENTITY statusbox.options.flex "幅を自動で調整する">
+<!ENTITY statusbox.options.width "幅 (ピクセル)">
+<!ENTITY statusbox.options.textAlign "テキスト位置">
+<!ENTITY statusbox.options.textAlignLeft "左">
+<!ENTITY statusbox.options.textAlignCenter "中央">
+<!ENTITY statusbox.options.textAlignRight "右">

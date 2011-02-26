@@ -1,10 +1,10 @@
-content urlbox chrome/content/
+content statusbox chrome/content/
 
-locale urlbox en-US chrome/locale/en-US/
-locale urlbox ja-JP chrome/locale/ja-JP/
+locale statusbox en-US chrome/locale/en-US/
+locale statusbox ja-JP chrome/locale/ja-JP/
 
-skin urlbox classic/1.0 chrome/skin/
+skin statusbox classic/1.0 chrome/skin/
 
-overlay chrome://browser/content/browser.xul chrome://urlbox/content/overlay.xul
+overlay chrome://browser/content/browser.xul chrome://statusbox/content/overlay.xul
 
-style chrome://global/content/customizeToolbar.xul chrome://urlbox/skin/toolbarbutton.css
+style chrome://global/content/customizeToolbar.xul chrome://statusbox/skin/toolbarbutton.css

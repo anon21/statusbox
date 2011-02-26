@@ -2,89 +2,68 @@
 
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
 
-<!DOCTYPE prefwindow SYSTEM "chrome://urlbox/locale/options.dtd">
+<!DOCTYPE prefwindow SYSTEM "chrome://statusbox/locale/options.dtd">
 
 <prefwindow xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
-	id="urlbox-prefwindow"
-	title="&urlbox.options.title;"
+	id="statusbox-prefwindow"
+	title="&statusbox.options.title;"
 	width="480"
 	height="320"
 	orient="vertical"
 	buttons="accept,cancel">
 	
-	<script type="application/javascript" src="chrome://urlbox/content/options.js"/>
+	<script type="application/javascript" src="chrome://statusbox/content/options.js"/>
 	
-	<prefpane id="urlbox-prefpane">
+	<prefpane id="statusbox-prefpane">
 		<preferences>
-			<preference id="urlbox-flex-pref"
-				name="extensions.urlbox.flex"
+			<preference id="statusbox-flex-pref"
+				name="extensions.statusbox.flex"
 				type="bool"/>
 			
-			<preference id="urlbox-width-pref"
-				name="extensions.urlbox.width"
+			<preference id="statusbox-width-pref"
+				name="extensions.statusbox.width"
 				type="int"/>
 			
-			<preference id="urlbox-text-align-pref"
-				name="extensions.urlbox.textAlign"
-				type="int"/>
-			
-			<preference id="urlbox-when-hidden-pref"
-				name="extensions.urlbox.whenHidden"
+			<preference id="statusbox-text-align-pref"
+				name="extensions.statusbox.textAlign"
 				type="int"/>
 		</preferences>
 		
 		<groupbox>
 			<caption>
-				<checkbox id="urlbox-flex-checkbox"
-					label="&urlbox.options.flex;"
-					preference="urlbox-flex-pref"
-					oncommand="urlboxOptions.updateFlexGroup();"/>
+				<checkbox id="statusbox-flex-checkbox"
+					label="&statusbox.options.flex;"
+					preference="statusbox-flex-pref"
+					oncommand="statusBoxOptions.updateFlexGroup();"/>
 			</caption>
 			
 			<hbox align="baseline">
-				<label value="&urlbox.options.width;"
+				<label value="&statusbox.options.width;"
 					width="120px"
-					control="urlbox-width-textbox"/>
+					control="statusbox-width-textbox"/>
 				
-				<textbox id="urlbox-width-textbox"
-					class="urlbox-flex-group"
+				<textbox id="statusbox-width-textbox"
+					class="statusbox-flex-group"
 					type="number"
 					min="0"
 					width="80px"
-					preference="urlbox-width-pref"/>
+					preference="statusbox-width-pref"/>
 			</hbox>
 		</groupbox>
 		
 		<hbox align="baseline">
-			<label value="&urlbox.options.textAlign;"
+			<label value="&statusbox.options.textAlign;"
 				width="180px"
-				control="urlbox-text-align-menulist"/>
+				control="statusbox-text-align-menulist"/>
 			
-			<menulist id="urlbox-text-align-menulist"
+			<menulist id="statusbox-text-align-menulist"
 				width="200px"
-				preference="urlbox-text-align-pref">
+				preference="statusbox-text-align-pref">
 				
 				<menupopup>
-					<menuitem label="&urlbox.options.textAlignLeft;" value="0"/>
-					<menuitem label="&urlbox.options.textAlignCenter;" value="1"/>
-					<menuitem label="&urlbox.options.textAlignRight;" value="2"/>
-				</menupopup>
-			</menulist>
-		</hbox>
-		
-		<hbox align="baseline">
-			<label value="&urlbox.options.whenHidden;"
-				width="180px"
-				control="urlbox-when-hidden-menulist"/>
-			
-			<menulist id="urlbox-when-hidden-menulist"
-				width="200px"
-				preference="urlbox-when-hidden-pref">
-				
-				<menupopup>
-					<menuitem label="&urlbox.options.doNothing;" value="0"/>
-					<menuitem label="&urlbox.options.showInUrlbar;" value="1"/>
-					<menuitem label="&urlbox.options.showInStatuspanel;" value="2"/>
+					<menuitem label="&statusbox.options.textAlignLeft;" value="0"/>
+					<menuitem label="&statusbox.options.textAlignCenter;" value="1"/>
+					<menuitem label="&statusbox.options.textAlignRight;" value="2"/>
 				</menupopup>
 			</menulist>
 		</hbox>

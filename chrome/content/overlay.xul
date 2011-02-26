@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?xml-stylesheet href="chrome://urlbox/skin/toolbarbutton.css" type="text/css"?>
+<?xml-stylesheet href="chrome://statusbox/skin/toolbarbutton.css" type="text/css"?>
 
-<!DOCTYPE overlay SYSTEM "chrome://urlbox/locale/overlay.dtd">
+<!DOCTYPE overlay SYSTEM "chrome://statusbox/locale/overlay.dtd">
 
 <overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-	<script type="application/javascript" src="chrome://urlbox/content/urlbox.js"/>
+	<script type="application/javascript" src="chrome://statusbox/content/statusbox.js"/>
 	
 	<toolbarpalette id="BrowserToolbarPalette">
-		<toolbaritem id="urlbox-button"
+		<toolbaritem id="statusbox-button"
 			class="chromeclass-toolbar-additional"
-			label="&urlbox.label;"
+			label="&statusbox.label;"
 			align="center">
 			
-			<label id="urlbox-label"
+			<label id="statusbox-field"
 				crop="center"
 				value=""
 				flex="1"/>

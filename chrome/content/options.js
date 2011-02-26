@@ -1,9 +1,9 @@
 
-var urlboxOptions = function() {
+var statusBoxOptions = function() {
 	return {
 		updateFlexGroup: function() {
-			var elems = document.getElementsByClassName("urlbox-flex-group");
-			var b = document.getElementById("urlbox-flex-checkbox").checked;
+			var elems = document.getElementsByClassName("statusbox-flex-group");
+			var b = document.getElementById("statusbox-flex-checkbox").checked;
 			
 			for(var i = 0; i < elems.length; ++i) {
 				elems[i].disabled = b;
@@ -12,4 +12,4 @@ var urlboxOptions = function() {
 	};
 }();
 
-window.addEventListener("load", urlboxOptions.updateFlexGroup, false);
+window.addEventListener("load", statusBoxOptions.updateFlexGroup, false);
