@@ -6,9 +6,9 @@
 	<Description about="urn:mozilla:install-manifest">
 		<em:name>Status Box</em:name>
 		<em:id>{864c3c17-db4d-4d21-959f-cd3f2e2d1258}</em:id>
-		<em:version>0.3.0</em:version>
+		<em:version>0.3.1</em:version>
 		<em:type>2</em:type>
-		<em:description>A toolbar button for showing link URLs and status texts.</em:description>
+		<em:description>A toolbar button for showing the link URL and status text.</em:description>
 		<em:creator>anon21</em:creator>
 		<em:optionsURL>chrome://statusbox/content/options.xul</em:optionsURL>
 		
