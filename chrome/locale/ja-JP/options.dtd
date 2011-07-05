@@ -7,3 +7,4 @@
 <!ENTITY statusbox.options.textAlignLeft "左">
 <!ENTITY statusbox.options.textAlignCenter "中央">
 <!ENTITY statusbox.options.textAlignRight "右">
+<!ENTITY statusbox.options.hideAddonbarCloseButton "アドオンバーの閉じるボタンを表示しない">

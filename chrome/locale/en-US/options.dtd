@@ -7,3 +7,4 @@
 <!ENTITY statusbox.options.textAlignLeft "Left">
 <!ENTITY statusbox.options.textAlignCenter "Center">
 <!ENTITY statusbox.options.textAlignRight "Right">
+<!ENTITY statusbox.options.hideAddonbarCloseButton "Hide the close button on the addon bar">
